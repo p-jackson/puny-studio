@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>puny studio</title>
+
+  <!-- WinJS references -->
+  <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+  <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+  <!-- puny_studio references -->
+  <link rel="stylesheet" type="text/css" href="lib/typeplate.css" />
+  <link rel="stylesheet" type="text/css" href="css/light-colours.css" id="theme" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+  <script type="text/html" id="empty">
+  </script>
+
+  <script type="text/html" id="midi-input">
+    <h5 class="highlight-foreground">MIDI Input</h5>
+
+    <h6 class="highlight-foreground">Channel Setup</h6>
+    <p>
+      Listening for input on MIDI channel
+      <span class="numberChooser" data-bind="numberChooser: { min: 1, max: 16, number: channel }"></span>
+    </p>
+
+    <h6 class="highlight-foreground">Keyboard Split</h6>
+    <p>
+      Keyboard is split into
+      <span class="numberChooser" data-bind="numberChooser: { min: 1, max: 3, number: regions }"></span>
+      <span data-bind="text: regionText"></span>
+    </p>
+    <div class="keybed">
+      <div class="keybed-blackKeys" data-bind="foreach: blackKeys">
+        <div class="keybed-blackKey keybed-key highlight-foreground-border" data-bind="css: background"></div>
+      </div>
+      <div class="keybed-whiteKeys" data-bind="foreach: whiteKeys">
+        <div class="keybed-whiteKey keybed-key highlight-foreground-border" data-bind="css: background"></div>
+      </div>
+    </div>
+    <!-- ko foreach: regionRows -->
+    <h6 data-bind="css: regionTextStyle, text: regionTextTitle"></h6>
+    <p>
+      Notes from <b class="highlight-foreground" data-bind="text: regionText"></b> are sent to MIDI channel
+      <span class="numberChooser" data-bind="numberChooser: { min: 1, max: 16, number: channel }"></span>
+    </p>
+      <!-- /ko -->
+</script>
+
+  <script type="text/html" id="about">
+    <h5 class="highlight-foreground">About puny studio</h5>
+
+    <h6 class="highlight-foreground">Icon Attributions</h6>
+    <ul>
+      <li>Keyboard by <a href="http://thenounproject.com/EricBirdDesign">Eric Bird</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+      <li>Minus by <a href="http://www.thenounproject.com/olyalily">Lia</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+      <li>Plus by <a href="http://www.thenounproject.com/olyalily">Lia</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+      <li>Check Mark by <a href="http://www.thenounproject.com/tlb">Thomas Le Bas</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+      <li>Information by <a href="http://www.thenounproject.com/tobiasfabian">Tobias F. Wolf</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+      <li>Floppy Disk by <a href="http://www.thenounproject.com/cortiemens">Cor Tiemens</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+      <li>Light by <a href="http://www.thenounproject.com/bjorna1">Björn Andersson</a> from the <a href="http://thenounproject.com">Noun Project</a></li>
+    </ul>
+  </script>
+
+  <script type="text/html" id="patches">
+    <h5 class="highlight-foreground">Patches</h5>
+
+    <h6 class="highlight-foreground">
+      Live Mode
+      <span class="onOff" data-bind="onOff: liveMode"></span>
+    </h6>
+    <p data-bind="html: rememberedText"></p>
+    <button class="patchButton" data-patch="1" data-bind="patchButton: activePatch">1</button>
+    <button class="patchButton" data-patch="2" data-bind="patchButton: activePatch">2</button>
+    <button class="patchButton" data-patch="3" data-bind="patchButton: activePatch">3</button>
+    <button class="patchButton" data-patch="4" data-bind="patchButton: activePatch">4</button>
+  </script>
+
+</head>
+<body class="primary-background primary-foreground">
+  <div class="l-leftMenu mainSidebar highlight-background">
+    <a data-bind="historyLink: 0" href="patches" class="primary-background-border mainSidebar-floppyDisk" title="Patches"></a>
+    <a data-bind="historyLink: 0" href="midi-input" class="primary-background-border mainSidebar-keyboard" title="MIDI Input"></a>
+    <a data-bind="historyLink: 0" href="about" class="primary-background-border mainSidebar-about" title="About puny studio"></a>
+    <div class="mainSidebar-flexMiddle"></div>
+    <button data-bind="toggleTheme: true" class="primary-background-border mainSidebar-toggleTheme" title="Toggle theme"></button>
+    </div>
+  <div class="l-rightViewContainer">
+    <div class="l-mainViewContainer" data-bind="template: mainView"></div>
+  </div>
+
+  <script src="lib/require.js" data-main="js/main"></script>
+</body>
+</html>

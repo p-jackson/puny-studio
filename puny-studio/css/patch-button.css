@@ -1,0 +1,14 @@
+﻿.patchButton {
+  border: 2px solid;
+  padding: 0.5em;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  width: 132px;
+  height: 132px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.patchButton.isActive {
+  border: 3px solid;
+}

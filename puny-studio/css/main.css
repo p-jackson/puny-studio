@@ -1,0 +1,56 @@
+﻿@import "main-sidebar.css";
+@import "midi-input.css";
+@import "patches.css";
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+h5 {
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+h6 {
+  margin-bottom: 0.4em;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+
+  /* App isn't made for keyboard accessibility */
+  outline: none;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+a, a:active {
+  color: #268bd2; /* blue */
+}
+
+body {
+  font-size: 13.5pt;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.8em;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.l-leftMenu {
+  flex: 0 80px;
+}
+
+.l-rightViewContainer {
+  flex: 1;
+}
+
+.l-mainViewContainer {
+  margin: 1em;
+}

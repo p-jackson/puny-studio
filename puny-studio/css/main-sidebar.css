@@ -1,0 +1,56 @@
+﻿.mainSidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainSidebar a {
+  flex: 0 81px;
+  border: none;
+  border-bottom: 1px solid;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mainSidebar-flexMiddle {
+  flex: 1;
+}
+
+.mainSidebar-toggleTheme {
+  border: none;
+  border-top: 1px solid;
+  flex: 0 81px;
+  margin: 0;
+  background-color: transparent;
+  background-image: url('../images/light.svg'); /* base01 */
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mainSidebar .mainSidebar-keyboard {
+  background-image: url('../images/keyboard.svg'); /* base01 */
+  background-size: contain;
+}
+
+.mainSidebar .mainSidebar-keyboard.isCurrent {
+  background-image: url('../images/keyboard-is-current.svg'); /* base3 */
+}
+
+.mainSidebar .mainSidebar-about {
+  background-image: url('../images/information.svg'); /* base01 */
+  background-size: 55%;
+}
+
+.mainSidebar .mainSidebar-about.isCurrent {
+  background-image: url('../images/information-is-current.svg'); /* base3 */
+}
+
+.mainSidebar .mainSidebar-floppyDisk {
+  background-image: url('../images/floppy-disk.svg'); /* base01 */
+  background-size: 52%;
+}
+
+.mainSidebar .mainSidebar-floppyDisk.isCurrent {
+  background-image: url('../images/floppy-disk-is-current.svg'); /* base3 */
+  background-size: 52%;
+}

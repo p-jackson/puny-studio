@@ -1,0 +1,35 @@
+﻿.onOff {
+  display: inline-flex;
+  cursor: pointer;
+  transition: width 200ms;
+  width: 3em;
+  max-height: 1.5rem;
+}
+
+.onOff.isActive {
+  cursor: default;
+  width: 6em;
+}
+
+.onOff .onOff-value {
+  display: inline-block;
+  flex: 0 0 3em;
+  font-weight: bold;
+  margin-right: 1px;
+  padding-left: 0.3em;
+}
+
+.onOff .onOff-toggle {
+  opacity: 0;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  margin-right: 1px;
+  flex: 1;
+  cursor: pointer;
+  padding-left: 0.3em;
+  overflow: hidden;
+}
+
+.onOff.isActive .onOff-toggle {
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
+<g fill="#586e75">
+	<path d="M50.3,25.3c-13.6,0-24.7,11.1-24.7,24.7c0,13.6,11.1,24.7,24.7,24.7S75,63.7,75,50C75,36.4,64,25.3,50.3,25.3z M50.3,68.5   c-10.2,0-18.5-8.3-18.5-18.5s8.3-18.5,18.5-18.5S68.8,39.8,68.8,50S60.5,68.5,50.3,68.5z"/>
+	<rect x="47.1" y="5.4" width="6.5" height="12.2"/>
+	<rect x="16.9" y="19.3" transform="matrix(0.707 0.7072 -0.7072 0.707 22.6691 -9.6535)" width="12.2" height="6.5"/>
+	<rect x="5.4" y="46.4" width="12.2" height="6.5"/>
+	<rect x="19.3" y="70.9" transform="matrix(-0.7072 -0.707 0.707 -0.7072 -15.9857 147.4086)" width="6.5" height="12.2"/>
+	<rect x="46.4" y="82.4" width="6.5" height="12.2"/>
+	<rect x="70.9" y="74.2" transform="matrix(-0.707 -0.7072 0.7072 -0.707 76.6775 186.703)" width="12.2" height="6.5"/>
+	<rect x="82.4" y="47.1" width="12.2" height="6.5"/>
+	<rect x="74.2" y="16.9" transform="matrix(0.7072 0.707 -0.707 0.7072 38.9321 -48.0401)" width="6.5" height="12.2"/>
+</g>
+</svg>

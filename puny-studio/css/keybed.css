@@ -1,0 +1,53 @@
+﻿.keybed {
+  margin-bottom: 1.5em;
+}
+
+.keybed .keybed-whiteKeys {
+  display: flex;
+}
+
+.keybed .keybed-blackKeys {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+}
+
+.keybed .keybed-key {
+  border: 1px solid;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.keybed .keybed-whiteKey {
+  border-left: none;
+  width: 15px;
+  height: 75px;
+}
+
+.keybed .keybed-whiteKey:first-of-type {
+  border-left: 1px solid;
+  border-bottom-left-radius: 2px;
+}
+
+.keybed .keybed-blackKey {
+  width: 8px;
+  height: 50px;
+}
+
+.keybed .keybed-blackKey:nth-of-type(5n + 1),
+.keybed .keybed-blackKey:nth-of-type(5n + 2) {
+  margin-left: 9px;
+}
+
+.keybed .keybed-blackKey:nth-of-type(5n + 3) {
+  margin-left: 8px;
+}
+
+.keybed .keybed-blackKey:nth-of-type(5n + 4) {
+  margin-left: 20px;
+}
+
+.keybed .keybed-blackKey:nth-of-type(5n + 5) {
+  margin-left: 8px;
+  margin-right: 11px;
+}
