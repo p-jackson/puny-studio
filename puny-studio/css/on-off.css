@@ -4,6 +4,7 @@
   transition: width 200ms;
   width: 3em;
   max-height: 1.5rem;
+  overflow: hidden;
 }
 
 .onOff.isActive {

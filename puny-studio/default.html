@@ -39,14 +39,14 @@
         <div class="keybed-whiteKey keybed-key highlight-foreground-border" data-bind="css: background"></div>
       </div>
     </div>
-    <!-- ko foreach: regionRows -->
-    <h6 data-bind="css: regionTextStyle, text: regionTextTitle"></h6>
-    <p>
-      Notes from <b class="highlight-foreground" data-bind="text: regionText"></b> are sent to MIDI channel
-      <span class="numberChooser" data-bind="numberChooser: { min: 1, max: 16, number: channel }"></span>
-    </p>
-      <!-- /ko -->
-</script>
+    <div data-bind="foreach: regionRows">
+      <h6 data-bind="css: regionTextStyle, text: regionTextTitle"></h6>
+      <p>
+        Notes from <b class="highlight-foreground" data-bind="text: regionText"></b> are sent to MIDI channel
+        <span class="numberChooser" data-bind="numberChooser: { min: 1, max: 16, number: channel }"></span>
+      </p>
+    </div>
+  </script>
 
   <script type="text/html" id="about">
     <h5 class="highlight-foreground">About puny studio</h5>

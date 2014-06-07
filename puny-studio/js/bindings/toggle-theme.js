@@ -1,4 +1,4 @@
-﻿define(['knockout', 'jquery'], function(ko, $) {
+﻿define(['knockout'], function(ko) {
   'use strict';
 
   var lightHref = 'css/light-colours.css';
@@ -7,22 +7,23 @@
   var transitionTime = 500;
 
   function addTransitionRules() {
-    if ($('style#toggleThemeTransition').length)
+    if (document.querySelector('style#toggleThemeTransition'))
       return;
 
-    var styleRules =
+    var el = document.createElement('style');
+    el.setAttribute('id', 'toggleThemeTransition');
+    el.textContent =
       '*, *::after, *::before {' +
       '  transition-duration: ' + transitionTime + 'ms;' +
       '  transition-property: background-color border-color color;' +
       '}';
 
-    var el = $('<style id="toggleThemeTransition">');
-    el.html(styleRules)
-    el.appendTo('head');
+    document.head.appendChild(el);
   }
 
   function removeTransitionRules() {
-    $('style#toggleThemeTransition').remove();
+    var el = document.querySelector('style#toggleThemeTransition');
+    el.parentNode.removeChild(el);
   }
 
   ko.bindingHandlers['toggleTheme'] = {

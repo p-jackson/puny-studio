@@ -1,4 +1,4 @@
-﻿define(['underscore', 'knockout', 'jquery'], function(_, ko, $) {
+﻿define(['underscore', 'knockout', 'create-element', 'toggle-class'], function(_, ko, createElement, toggleClass) {
   'use strict';
 
   function toText(value) {
@@ -10,20 +10,26 @@
 
       var initialValue = ko.unwrap(valueAccessor());
 
-      var val = $('<span>').addClass('onOff-value');
-      var toggle = $('<span>').addClass('onOff-toggle on-colour-foreground');
+      var val = createElement('span')
+                  .addClass('onOff-value')
+                  .text(toText(initialValue))
+                  .appendTo(el)
+                  .get();
 
-      val.text(toText(initialValue)).appendTo(el);
-      toggle.text(toText(!initialValue)).appendTo(el);
+      var toggle = createElement('span')
+                    .addClass('onOff-toggle on-colour-foreground')
+                    .text(toText(!initialValue))
+                    .appendTo(el)
+                    .get();
 
       function updateText() {
         var value = ko.unwrap(valueAccessor());
-        val.text(toText(value));
-        toggle.text(toText(!value));
-        val.toggleClass('cyan-background on-colour-foreground', value);
-        val.toggleClass('highlight-background highlight-foreground', !value);
-        toggle.toggleClass('blue-background', !value);
-        toggle.toggleClass('red-background', value);
+        val.textContent = toText(value);
+        toggle.textContent = toText(!value);
+        toggleClass(val, 'cyan-background on-colour-foreground', value);
+        toggleClass(val, 'highlight-background highlight-foreground', !value);
+        toggleClass(toggle, 'blue-background', !value);
+        toggleClass(toggle, 'red-background', value);
       }
 
       updateText();
@@ -33,7 +39,7 @@
       function windowMouseDown(e) {
         var id = e._punyStudioOnOff;
         if (id !== punyStudioOnOffId) {
-          $(el).removeClass('isActive');
+          el.classList.remove('isActive');
           window.removeEventListener('mousedown', windowMouseDown);
         }
       }
@@ -42,8 +48,8 @@
         e._punyStudioOnOff = punyStudioOnOffId;
       }, true);
 
-      val.mousedown(function() {
-        $(el).addClass('isActive');
+      val.addEventListener('mousedown', function() {
+        el.classList.add('isActive');
         window.addEventListener('mousedown', windowMouseDown);
       });
 
@@ -51,10 +57,10 @@
         window.removeEventListener('mousedown', windowMouseDown);
       });
 
-      toggle.mousedown(function(e) {
+      toggle.addEventListener('mousedown', function(e) {
         var observable = valueAccessor();
         observable(!observable());
-        $(el).removeClass('isActive');
+        el.classList.remove('isActive');
       });
 
       valueAccessor().subscribe(function(newValue) {

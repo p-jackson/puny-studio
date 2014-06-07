@@ -1,4 +1,4 @@
-﻿define(['knockout', 'jquery'], function(ko, $) {
+﻿define(['underscore', 'knockout', 'create-element'], function(_, ko, createElement) {
   'use strict';
 
   ko.bindingHandlers['numberChooser'] = {
@@ -8,22 +8,33 @@
       var min = valueAccessor().min;
       var max = valueAccessor().max;
 
-      var num = $('<span>').addClass('numberChooser-number highlight-background highlight-foreground').text(initialValue);
-      var inc = $('<button>').addClass('numberChooser-increase blue-background');
-      var dec = $('<button>').addClass('numberChooser-decrease blue-background');
-      var done = $('<button>').addClass('numberChooser-done green-background');
+      var num = createElement('span')
+                  .addClass('numberChooser-number highlight-background highlight-foreground')
+                  .text(initialValue)
+                  .appendTo(el)
+                  .get();
 
-      num.appendTo(el);
-      inc.appendTo(el);
-      dec.appendTo(el);
-      done.appendTo(el);
+      var inc = createElement('button')
+                  .addClass('numberChooser-increase blue-background')
+                  .appendTo(el)
+                  .get();
+
+      var dec = createElement('button')
+                  .addClass('numberChooser-decrease blue-background')
+                  .appendTo(el)
+                  .get();
+
+      var done = createElement('button')
+                  .addClass('numberChooser-done green-background')
+                  .appendTo(el)
+                  .get();
 
       var punyStudioNumberChooserId = _.uniqueId();
 
       function windowMouseDown(e) {
         var id = e._punyStudioNumberChooser;
         if (id !== punyStudioNumberChooserId) {
-          $(el).removeClass('isActive');
+          el.classList.remove('isActive');
           window.removeEventListener('mousedown', windowMouseDown);
         }
       }
@@ -36,39 +47,39 @@
         window.removeEventListener('mousedown', windowMouseDown);
       });
 
-      num.mousedown(function() {
-        $(el).addClass('isActive');
+      num.addEventListener('mousedown', function() {
+        el.classList.add('isActive');
         window.addEventListener('mousedown', windowMouseDown);
       });
 
       function updateEnableStates() {
         var number = ko.unwrap(valueAccessor().number);
-        inc.prop('disabled', number >= max);
-        dec.prop('disabled', number <= min);
+        inc.disabled = number >= max;
+        dec.disabled = number <= min;
       }
 
       updateEnableStates();
 
-      inc.mousedown(function(e) {
+      inc.addEventListener('mousedown', function(e) {
         var number = valueAccessor().number;
         if (number() < max)
           number(number() + 1);
         updateEnableStates();
       });
 
-      dec.mousedown(function(e) {
+      dec.addEventListener('mousedown', function(e) {
         var number = valueAccessor().number;
         if (number() > min)
           number(number() - 1);
         updateEnableStates();
       });
 
-      done.mousedown(function(e) {
-        $(el).removeClass('isActive');
+      done.addEventListener('mousedown', function(e) {
+        el.classList.remove('isActive');
       });
 
       valueAccessor().number.subscribe(function(newValue) {
-        num.text(newValue);
+        num.textContent = newValue;
       });
     }
   };
