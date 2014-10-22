@@ -1,7 +1,9 @@
-﻿define(['backbone'], function(Backbone) {
+﻿define(['./storage-model', 'midi'], function(StorageModel, midi) {
   'use strict';
 
-  return Backbone.Model.extend({
+  return StorageModel.extend({
+    storage: midi.Patches,
+
     defaults: {
       liveMode: false,
       activePatch: 1

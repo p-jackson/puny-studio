@@ -1,5 +1,8 @@
 ﻿define(['backbone'], function(Backbone) {
   'use strict';
 
-  return Backbone.Model.extend({});
+  return Backbone.Model.extend({
+    sync: function() {
+    }
+  });
 });

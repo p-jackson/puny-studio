@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>865dd9e4-8cfa-441d-8fe2-44dad450360e</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{4edf997e-ff21-4a55-a4c3-4fc71b9ac3fa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cc" />
+    <ClCompile Include="midi-input.cc" />
+    <ClCompile Include="patches.cc" />
+    <ClCompile Include="settings.cc" />
+    <ClCompile Include="engine\engine.cc">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine-control.cc" />
+    <ClCompile Include="engine\audio-output.cc">
+      <Filter>engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="midi-input.h" />
+    <ClInclude Include="patches.h" />
+    <ClInclude Include="settings.h" />
+    <ClInclude Include="engine\engine.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine-control.h" />
+    <ClInclude Include="engine\audio-output.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\common.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

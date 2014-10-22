@@ -24,7 +24,9 @@
       var modelModule = './models/' + viewName;
 
       require([vmModule, modelModule], function(ViewModel, Model) {
-        var vm = new ViewModel(new Model());
+        var model = new Model();
+        model.fetch();
+        var vm = new ViewModel(model);
         parentViewModel.setMainView(viewName, vm);
       });
     },

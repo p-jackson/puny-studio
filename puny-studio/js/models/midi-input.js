@@ -1,8 +1,11 @@
-﻿define(['backbone'], function(Backbone) {
+﻿define(['./storage-model', 'midi'], function(StorageModel, midi) {
   'use strict';
 
-  return Backbone.Model.extend({
+  return StorageModel.extend({
+    storage: midi.MidiInput,
+
     defaults: {
+      deviceName: 'Default Device',
       channel: 3,
       regions: 1,
       splitOne: Math.round(43 / 3),

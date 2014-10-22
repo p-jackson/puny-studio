@@ -88,10 +88,12 @@
     <Content Include="js\init-winjs.js" />
     <Content Include="js\main.js" />
     <Content Include="css\main.css" />
+    <Content Include="js\midi.js" />
     <Content Include="js\models\about.js" />
     <Content Include="js\models\app.js" />
     <Content Include="js\models\midi-input.js" />
     <Content Include="js\models\patches.js" />
+    <Content Include="js\models\storage-model.js" />
     <Content Include="js\router.js" />
     <Content Include="js\toggle-class.js" />
     <Content Include="js\view-models\about.js" />
@@ -109,6 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\midi\midi.vcxproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment

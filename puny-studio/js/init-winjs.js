@@ -1,4 +1,4 @@
-﻿define(['underscore'], function(_) {
+﻿define(['underscore', 'models/storage-model', 'midi'], function(_, StorageModel, midi) {
   'use strict';
 
   return function() {
@@ -9,6 +9,9 @@
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
 
+    var engineControl = new midi.EngineControl();
+    engineControl.start();
+
     app.onactivated = function(args) {
       if (args.detail.kind === activation.ActivationKind.launch) {
         if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
@@ -18,6 +21,10 @@
           // TODO: This application has been reactivated from suspension.
           // Restore application state here.
         }
+
+        StorageModel.restore();
+        engineControl.start();
+
         args.setPromise(WinJS.UI.processAll());
       }
     };
@@ -29,6 +36,8 @@
       // saved and restored across suspension. If you need to complete an
       // asynchronous operation before your application is suspended, call
       // args.setPromise().
+
+      StorageModel.suspend();
     };
 
     app.start();

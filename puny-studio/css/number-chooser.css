@@ -3,6 +3,7 @@
   cursor: pointer;
   transition: width 200ms;
   width: 3em;
+  margin-right: 0.3em;
 }
 
 .numberChooser.isActive {
